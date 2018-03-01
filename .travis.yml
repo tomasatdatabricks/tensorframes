@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 
 language: java
 
@@ -52,6 +52,15 @@ env:
   - SCALA_BINARY_VERSION=2.11.8 SPARK_VERSION=2.2.0 SPARK_BUILD="spark-2.2.0-bin-hadoop2.7"
     SPARK_BUILD_URL="http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz"
     TF_PY2_BUILD=tensorflow-1.3.0-cp27-none-linux_x86_64.whl PYTHON_VERSION=3.6.2
+
+  - SCALA_BINARY_VERSION=2.11.8 SPARK_VERSION=2.3.0 SPARK_BUILD="spark-2.3.0-bin-hadoop2.7"
+      SPARK_BUILD_URL="https://dist.apache.org/repos/dist/release/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz"
+      PYTHON_VERSION=2.7.13
+  - SCALA_BINARY_VERSION=2.11.8 SPARK_VERSION=2.3.0 SPARK_BUILD="spark-2.2.0-bin-hadoop2.7"
+      SPARK_BUILD_URL="https://dist.apache.org/repos/dist/release/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz"
+      TF_PY2_BUILD=tensorflow-1.3.0-cp27-none-linux_x86_64.whl PYTHON_VERSION=3.6.2
+
+
 
 before_install:
  - ./bin/download_travis_dependencies.sh

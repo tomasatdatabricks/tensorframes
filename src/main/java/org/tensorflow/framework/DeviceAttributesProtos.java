@@ -6,32 +6,57 @@ package org.tensorflow.framework;
 public final class DeviceAttributesProtos {
   private DeviceAttributesProtos() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistryLite registry) {
   }
-  static com.google.protobuf.Descriptors.Descriptor
+
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tensorflow_InterconnectLink_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tensorflow_InterconnectLink_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tensorflow_LocalLinks_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tensorflow_LocalLinks_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_tensorflow_DeviceLocality_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_tensorflow_DeviceLocality_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_tensorflow_DeviceAttributes_descriptor;
-  static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_tensorflow_DeviceAttributes_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
       "\n1tensorflow/core/framework/device_attri" +
-      "butes.proto\022\ntensorflow\"\257\001\n\020DeviceAttrib" +
-      "utes\022\014\n\004name\030\001 \001(\t\022\023\n\013device_type\030\002 \001(\t\022" +
-      "\024\n\014memory_limit\030\004 \001(\003\022/\n\rbus_adjacency\030\005" +
-      " \001(\0162\030.tensorflow.BusAdjacency\022\023\n\013incarn" +
-      "ation\030\006 \001(\006\022\034\n\024physical_device_desc\030\007 \001(" +
-      "\t*J\n\014BusAdjacency\022\t\n\005BUS_0\020\000\022\t\n\005BUS_1\020\001\022" +
-      "\013\n\007BUS_ANY\020\002\022\027\n\023BUS_NUM_ADJACENCIES\020\003B4\n" +
-      "\030org.tensorflow.frameworkB\026DeviceAttribu" +
-      "tesProtosP\001b\006proto3"
+      "butes.proto\022\ntensorflow\"E\n\020InterconnectL" +
+      "ink\022\021\n\tdevice_id\030\001 \001(\005\022\014\n\004type\030\002 \001(\t\022\020\n\010" +
+      "strength\030\003 \001(\005\"8\n\nLocalLinks\022*\n\004link\030\001 \003" +
+      "(\0132\034.tensorflow.InterconnectLink\"Z\n\016Devi" +
+      "ceLocality\022\016\n\006bus_id\030\001 \001(\005\022\021\n\tnuma_node\030" +
+      "\002 \001(\005\022%\n\005links\030\003 \001(\0132\026.tensorflow.LocalL" +
+      "inks\"\254\001\n\020DeviceAttributes\022\014\n\004name\030\001 \001(\t\022" +
+      "\023\n\013device_type\030\002 \001(\t\022\024\n\014memory_limit\030\004 \001" +
+      "(\003\022,\n\010locality\030\005 \001(\0132\032.tensorflow.Device" +
+      "Locality\022\023\n\013incarnation\030\006 \001(\006\022\034\n\024physica" +
+      "l_device_desc\030\007 \001(\tB7\n\030org.tensorflow.fr" +
+      "ameworkB\026DeviceAttributesProtosP\001\370\001\001b\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -45,12 +70,30 @@ public final class DeviceAttributesProtos {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_tensorflow_DeviceAttributes_descriptor =
+    internal_static_tensorflow_InterconnectLink_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_tensorflow_InterconnectLink_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tensorflow_InterconnectLink_descriptor,
+        new java.lang.String[] { "DeviceId", "Type", "Strength", });
+    internal_static_tensorflow_LocalLinks_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_tensorflow_LocalLinks_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tensorflow_LocalLinks_descriptor,
+        new java.lang.String[] { "Link", });
+    internal_static_tensorflow_DeviceLocality_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_tensorflow_DeviceLocality_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_tensorflow_DeviceLocality_descriptor,
+        new java.lang.String[] { "BusId", "NumaNode", "Links", });
+    internal_static_tensorflow_DeviceAttributes_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_tensorflow_DeviceAttributes_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_tensorflow_DeviceAttributes_descriptor,
-        new java.lang.String[] { "Name", "DeviceType", "MemoryLimit", "BusAdjacency", "Incarnation", "PhysicalDeviceDesc", });
+        new java.lang.String[] { "Name", "DeviceType", "MemoryLimit", "Locality", "Incarnation", "PhysicalDeviceDesc", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -909,7 +909,7 @@ object DebugRowOpsImpl extends Logging {
   private def performRunner(
       session: Session,
       requested: Seq[String],
-      inputs: Seq[(String, Tensor)]): Seq[Tensor] = {
+      inputs: Seq[(String, Tensor[_])]): Seq[Tensor[_]] = {
     var runner = session.runner()
     for (req <- requested) {
       runner = runner.fetch(req)

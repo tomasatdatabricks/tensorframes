@@ -199,7 +199,7 @@ private[tensorframes] sealed abstract class ScalarTypeOperation[@specialized(Int
   @deprecated("to remove", "now")
   def convertBuffer(buff: ByteBuffer, numElements: Int): Iterable[Any]
 
-  def convertTensor(t: tf.Tensor[_]): MWrappedArray[_]
+  def convertTensor(t: tf.Tensor[_]): MWrappedArray[T]
 
   final def convertBuffer1(b0: Array[_], dim1: Int): Array[T] = {
     val b = b0.asInstanceOf[Array[T]]

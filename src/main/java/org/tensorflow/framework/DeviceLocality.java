@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private DeviceLocality() {
     busId_ = 0;
-    numaNode_ = 0;
   }
 
   @java.lang.Override
@@ -54,24 +53,6 @@ private static final long serialVersionUID = 0L;
           case 8: {
 
             busId_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            numaNode_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            org.tensorflow.framework.LocalLinks.Builder subBuilder = null;
-            if (links_ != null) {
-              subBuilder = links_.toBuilder();
-            }
-            links_ = input.readMessage(org.tensorflow.framework.LocalLinks.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(links_);
-              links_ = subBuilder.buildPartial();
-            }
-
             break;
           }
         }
@@ -112,52 +93,6 @@ private static final long serialVersionUID = 0L;
     return busId_;
   }
 
-  public static final int NUMA_NODE_FIELD_NUMBER = 2;
-  private int numaNode_;
-  /**
-   * <pre>
-   * Optional NUMA locality of device.
-   * </pre>
-   *
-   * <code>int32 numa_node = 2;</code>
-   */
-  public int getNumaNode() {
-    return numaNode_;
-  }
-
-  public static final int LINKS_FIELD_NUMBER = 3;
-  private org.tensorflow.framework.LocalLinks links_;
-  /**
-   * <pre>
-   * Optional local interconnect links to other devices.
-   * </pre>
-   *
-   * <code>.tensorflow.LocalLinks links = 3;</code>
-   */
-  public boolean hasLinks() {
-    return links_ != null;
-  }
-  /**
-   * <pre>
-   * Optional local interconnect links to other devices.
-   * </pre>
-   *
-   * <code>.tensorflow.LocalLinks links = 3;</code>
-   */
-  public org.tensorflow.framework.LocalLinks getLinks() {
-    return links_ == null ? org.tensorflow.framework.LocalLinks.getDefaultInstance() : links_;
-  }
-  /**
-   * <pre>
-   * Optional local interconnect links to other devices.
-   * </pre>
-   *
-   * <code>.tensorflow.LocalLinks links = 3;</code>
-   */
-  public org.tensorflow.framework.LocalLinksOrBuilder getLinksOrBuilder() {
-    return getLinks();
-  }
-
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -173,12 +108,6 @@ private static final long serialVersionUID = 0L;
     if (busId_ != 0) {
       output.writeInt32(1, busId_);
     }
-    if (numaNode_ != 0) {
-      output.writeInt32(2, numaNode_);
-    }
-    if (links_ != null) {
-      output.writeMessage(3, getLinks());
-    }
     unknownFields.writeTo(output);
   }
 
@@ -190,14 +119,6 @@ private static final long serialVersionUID = 0L;
     if (busId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, busId_);
-    }
-    if (numaNode_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, numaNode_);
-    }
-    if (links_ != null) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getLinks());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -217,13 +138,6 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && (getBusId()
         == other.getBusId());
-    result = result && (getNumaNode()
-        == other.getNumaNode());
-    result = result && (hasLinks() == other.hasLinks());
-    if (hasLinks()) {
-      result = result && getLinks()
-          .equals(other.getLinks());
-    }
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -237,12 +151,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + BUS_ID_FIELD_NUMBER;
     hash = (53 * hash) + getBusId();
-    hash = (37 * hash) + NUMA_NODE_FIELD_NUMBER;
-    hash = (53 * hash) + getNumaNode();
-    if (hasLinks()) {
-      hash = (37 * hash) + LINKS_FIELD_NUMBER;
-      hash = (53 * hash) + getLinks().hashCode();
-    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -374,14 +282,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       busId_ = 0;
 
-      numaNode_ = 0;
-
-      if (linksBuilder_ == null) {
-        links_ = null;
-      } else {
-        links_ = null;
-        linksBuilder_ = null;
-      }
       return this;
     }
 
@@ -405,12 +305,6 @@ private static final long serialVersionUID = 0L;
     public org.tensorflow.framework.DeviceLocality buildPartial() {
       org.tensorflow.framework.DeviceLocality result = new org.tensorflow.framework.DeviceLocality(this);
       result.busId_ = busId_;
-      result.numaNode_ = numaNode_;
-      if (linksBuilder_ == null) {
-        result.links_ = links_;
-      } else {
-        result.links_ = linksBuilder_.build();
-      }
       onBuilt();
       return result;
     }
@@ -454,12 +348,6 @@ private static final long serialVersionUID = 0L;
       if (other == org.tensorflow.framework.DeviceLocality.getDefaultInstance()) return this;
       if (other.getBusId() != 0) {
         setBusId(other.getBusId());
-      }
-      if (other.getNumaNode() != 0) {
-        setNumaNode(other.getNumaNode());
-      }
-      if (other.hasLinks()) {
-        mergeLinks(other.getLinks());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -527,197 +415,6 @@ private static final long serialVersionUID = 0L;
       busId_ = 0;
       onChanged();
       return this;
-    }
-
-    private int numaNode_ ;
-    /**
-     * <pre>
-     * Optional NUMA locality of device.
-     * </pre>
-     *
-     * <code>int32 numa_node = 2;</code>
-     */
-    public int getNumaNode() {
-      return numaNode_;
-    }
-    /**
-     * <pre>
-     * Optional NUMA locality of device.
-     * </pre>
-     *
-     * <code>int32 numa_node = 2;</code>
-     */
-    public Builder setNumaNode(int value) {
-      
-      numaNode_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional NUMA locality of device.
-     * </pre>
-     *
-     * <code>int32 numa_node = 2;</code>
-     */
-    public Builder clearNumaNode() {
-      
-      numaNode_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private org.tensorflow.framework.LocalLinks links_ = null;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.tensorflow.framework.LocalLinks, org.tensorflow.framework.LocalLinks.Builder, org.tensorflow.framework.LocalLinksOrBuilder> linksBuilder_;
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public boolean hasLinks() {
-      return linksBuilder_ != null || links_ != null;
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public org.tensorflow.framework.LocalLinks getLinks() {
-      if (linksBuilder_ == null) {
-        return links_ == null ? org.tensorflow.framework.LocalLinks.getDefaultInstance() : links_;
-      } else {
-        return linksBuilder_.getMessage();
-      }
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public Builder setLinks(org.tensorflow.framework.LocalLinks value) {
-      if (linksBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        links_ = value;
-        onChanged();
-      } else {
-        linksBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public Builder setLinks(
-        org.tensorflow.framework.LocalLinks.Builder builderForValue) {
-      if (linksBuilder_ == null) {
-        links_ = builderForValue.build();
-        onChanged();
-      } else {
-        linksBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public Builder mergeLinks(org.tensorflow.framework.LocalLinks value) {
-      if (linksBuilder_ == null) {
-        if (links_ != null) {
-          links_ =
-            org.tensorflow.framework.LocalLinks.newBuilder(links_).mergeFrom(value).buildPartial();
-        } else {
-          links_ = value;
-        }
-        onChanged();
-      } else {
-        linksBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public Builder clearLinks() {
-      if (linksBuilder_ == null) {
-        links_ = null;
-        onChanged();
-      } else {
-        links_ = null;
-        linksBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public org.tensorflow.framework.LocalLinks.Builder getLinksBuilder() {
-      
-      onChanged();
-      return getLinksFieldBuilder().getBuilder();
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    public org.tensorflow.framework.LocalLinksOrBuilder getLinksOrBuilder() {
-      if (linksBuilder_ != null) {
-        return linksBuilder_.getMessageOrBuilder();
-      } else {
-        return links_ == null ?
-            org.tensorflow.framework.LocalLinks.getDefaultInstance() : links_;
-      }
-    }
-    /**
-     * <pre>
-     * Optional local interconnect links to other devices.
-     * </pre>
-     *
-     * <code>.tensorflow.LocalLinks links = 3;</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        org.tensorflow.framework.LocalLinks, org.tensorflow.framework.LocalLinks.Builder, org.tensorflow.framework.LocalLinksOrBuilder> 
-        getLinksFieldBuilder() {
-      if (linksBuilder_ == null) {
-        linksBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            org.tensorflow.framework.LocalLinks, org.tensorflow.framework.LocalLinks.Builder, org.tensorflow.framework.LocalLinksOrBuilder>(
-                getLinks(),
-                getParentForChildren(),
-                isClean());
-        links_ = null;
-      }
-      return linksBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

@@ -16,38 +16,4 @@ public interface DeviceLocalityOrBuilder extends
    * <code>int32 bus_id = 1;</code>
    */
   int getBusId();
-
-  /**
-   * <pre>
-   * Optional NUMA locality of device.
-   * </pre>
-   *
-   * <code>int32 numa_node = 2;</code>
-   */
-  int getNumaNode();
-
-  /**
-   * <pre>
-   * Optional local interconnect links to other devices.
-   * </pre>
-   *
-   * <code>.tensorflow.LocalLinks links = 3;</code>
-   */
-  boolean hasLinks();
-  /**
-   * <pre>
-   * Optional local interconnect links to other devices.
-   * </pre>
-   *
-   * <code>.tensorflow.LocalLinks links = 3;</code>
-   */
-  org.tensorflow.framework.LocalLinks getLinks();
-  /**
-   * <pre>
-   * Optional local interconnect links to other devices.
-   * </pre>
-   *
-   * <code>.tensorflow.LocalLinks links = 3;</code>
-   */
-  org.tensorflow.framework.LocalLinksOrBuilder getLinksOrBuilder();
 }

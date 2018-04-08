@@ -92,8 +92,7 @@ install:
       source $HOME/miniconda/bin/activate test-environment;
       python --version;
       pip --version;
-      pip install --user -r $HOME/tensorframes/python/requirements.txt;
-      pip install --user tensorflow==1.6"
+      pip install --user -r $HOME/tensorframes/python/requirements.txt;"
 
 script:
  # Run the scala unit tests first

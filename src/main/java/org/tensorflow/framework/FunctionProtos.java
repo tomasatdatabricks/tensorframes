@@ -55,17 +55,17 @@ public final class FunctionProtos {
       "amework/op_def.proto\"j\n\022FunctionDefLibra" +
       "ry\022)\n\010function\030\001 \003(\0132\027.tensorflow.Functi" +
       "onDef\022)\n\010gradient\030\002 \003(\0132\027.tensorflow.Gra" +
-      "dientDef\"\252\002\n\013FunctionDef\022$\n\tsignature\030\001 " +
+      "dientDef\"\260\002\n\013FunctionDef\022$\n\tsignature\030\001 " +
       "\001(\0132\021.tensorflow.OpDef\022/\n\004attr\030\005 \003(\0132!.t" +
       "ensorflow.FunctionDef.AttrEntry\022%\n\010node_" +
       "def\030\003 \003(\0132\023.tensorflow.NodeDef\022-\n\003ret\030\004 " +
       "\003(\0132 .tensorflow.FunctionDef.RetEntry\032B\n" +
       "\tAttrEntry\022\013\n\003key\030\001 \001(\t\022$\n\005value\030\002 \001(\0132\025" +
       ".tensorflow.AttrValue:\0028\001\032*\n\010RetEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\";\n\013Gradien" +
-      "tDef\022\025\n\rfunction_name\030\001 \001(\t\022\025\n\rgradient_" +
-      "func\030\002 \001(\tB/\n\030org.tensorflow.frameworkB\016" +
-      "FunctionProtosP\001\370\001\001b\006proto3"
+      "\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001J\004\010\002\020\003\";\n\013G" +
+      "radientDef\022\025\n\rfunction_name\030\001 \001(\t\022\025\n\rgra" +
+      "dient_func\030\002 \001(\tB/\n\030org.tensorflow.frame" +
+      "workB\016FunctionProtosP\001\370\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

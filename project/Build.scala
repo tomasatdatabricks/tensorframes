@@ -46,7 +46,6 @@ object Shading extends Build {
   lazy val nonShadedDependencies = Seq(
     // Normal dependencies
     ModuleID("org.apache.commons", "commons-proxy", "1.0"),
-    "org.scalactic" %% "scalactic" % "3.0.0",
     "org.apache.commons" % "commons-lang3" % "3.4",
     "com.typesafe.scala-logging" %% "scala-logging-api" % "2.1.2",
     "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2",
@@ -125,4 +124,21 @@ object Shading extends Build {
     ),
     assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
   ).settings(commonSettings: _*)
+
+  // The java testing artifact: do not shade or embed anything.
+  /* lazy val mlruntime = Project("mlruntime", file(".")).settings(
+    target := target.value / "mlruntime",
+    libraryDependencies ++= sparkDependencies.map(_ % "provided"),
+    libraryDependencies ++= nonShadedDependencies,
+    libraryDependencies ++= shadedDependencies,
+
+    // Do not attempt to run tests when building the assembly.
+    test in assembly := {},
+    // Spark has a dependency on protobuf2, which conflicts with protobuf3.
+    // Our own dep needs to be shaded.
+    assemblyShadeRules in assembly := Seq(
+      ShadeRule.rename("com.google.protobuf.**" -> "org.tensorframes.protobuf3shade.@1").inAll
+    ),
+    assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
+  ).settings(commonSettings: _*)*/
 }

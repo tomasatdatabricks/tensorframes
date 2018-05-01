@@ -3790,6 +3790,11 @@ private static final long serialVersionUID = 0L;
   private boolean isStateful_;
   /**
    * <pre>
+   * Ops are marked as stateful if their behavior depends on some state beyond
+   * their input tensors (e.g. variable reading op) or if they have
+   * a side-effect (e.g. printing or asserting ops). Equivalently, stateless ops
+   * must always produce the same output for the same input and have
+   * no side-effects.
    * By default Ops may be moved between devices.  Stateful ops should
    * either not be moved, or should only be moved if that state can also
    * be moved (e.g. via some sort of save / restore).
@@ -5802,6 +5807,11 @@ private static final long serialVersionUID = 0L;
     private boolean isStateful_ ;
     /**
      * <pre>
+     * Ops are marked as stateful if their behavior depends on some state beyond
+     * their input tensors (e.g. variable reading op) or if they have
+     * a side-effect (e.g. printing or asserting ops). Equivalently, stateless ops
+     * must always produce the same output for the same input and have
+     * no side-effects.
      * By default Ops may be moved between devices.  Stateful ops should
      * either not be moved, or should only be moved if that state can also
      * be moved (e.g. via some sort of save / restore).
@@ -5816,6 +5826,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Ops are marked as stateful if their behavior depends on some state beyond
+     * their input tensors (e.g. variable reading op) or if they have
+     * a side-effect (e.g. printing or asserting ops). Equivalently, stateless ops
+     * must always produce the same output for the same input and have
+     * no side-effects.
      * By default Ops may be moved between devices.  Stateful ops should
      * either not be moved, or should only be moved if that state can also
      * be moved (e.g. via some sort of save / restore).
@@ -5833,6 +5848,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
+     * Ops are marked as stateful if their behavior depends on some state beyond
+     * their input tensors (e.g. variable reading op) or if they have
+     * a side-effect (e.g. printing or asserting ops). Equivalently, stateless ops
+     * must always produce the same output for the same input and have
+     * no side-effects.
      * By default Ops may be moved between devices.  Stateful ops should
      * either not be moved, or should only be moved if that state can also
      * be moved (e.g. via some sort of save / restore).
